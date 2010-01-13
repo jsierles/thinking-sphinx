@@ -201,16 +201,13 @@ http://freelancing-god.github.com/ts/en/upgrading.html
     if Gem::Version.new(Gem::RubyGemsVersion) >= Gem::Version.new('1.2.0') then
       s.add_runtime_dependency(%q<activerecord>, [">= 1.15.6"])
       s.add_runtime_dependency(%q<riddle>, [">= 1.0.8"])
-      s.add_runtime_dependency(%q<after_commit>, [">= 1.0.5"])
     else
       s.add_dependency(%q<activerecord>, [">= 1.15.6"])
       s.add_dependency(%q<riddle>, [">= 1.0.8"])
-      s.add_dependency(%q<after_commit>, [">= 1.0.5"])
     end
   else
     s.add_dependency(%q<activerecord>, [">= 1.15.6"])
     s.add_dependency(%q<riddle>, [">= 1.0.8"])
-    s.add_dependency(%q<after_commit>, [">= 1.0.5"])
   end
 end
 
