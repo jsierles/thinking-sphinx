@@ -123,8 +123,8 @@ module ThinkingSphinx
       Thread.current[:thinking_sphinx_environment] ||= begin
         if defined?(Merb)
           Merb.environment
-        elsif defined?(RAILS_ENV)
-          RAILS_ENV
+        elsif defined?(Rails)
+          Rails.env
         else
           ENV['RAILS_ENV'] || 'development'
         end

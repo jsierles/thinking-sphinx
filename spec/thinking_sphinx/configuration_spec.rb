@@ -20,12 +20,15 @@ describe ThinkingSphinx::Configuration do
       Object.send :remove_const, :Merb
     end
     
-    it "should use RAILS_ENV if set" do
-      RAILS_ENV = 'global_rails'
-      
-      ThinkingSphinx::Configuration.environment.should == 'global_rails'
-      
-      Object.send :remove_const, :RAILS_ENV
+    it "should use the Rails environment value if set" do
+      unless defined?(Rails)
+        module ::Rails; end
+      end
+      ThinkingSphinx::Configuration.stub!(:defined? => true)
+      Merb.stub!(:env => "rails_production")
+      ThinkingSphinx::Configuration.environment.should == "rails_production"
+
+      Object.send :remove_const, :Rails
     end
 
     it "should use the Rails environment value if set" do
