@@ -7,7 +7,7 @@ require 'rubygems'
 require 'fileutils'
 require 'ginger'
 require 'jeweler'
-
+require 'logger'
 require "lib/thinking_sphinx"
 
 require 'will_paginate'
