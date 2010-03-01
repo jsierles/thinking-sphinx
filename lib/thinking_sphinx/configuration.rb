@@ -125,8 +125,10 @@ module ThinkingSphinx
           Merb.environment
         elsif defined?(Rails)
           Rails.env
+        elsif ENV['RAILS_ENV']
+          ENV['RAILS_ENV']
         else
-          ENV['RAILS_ENV'] || 'development'
+          raise RuntimeError, "No suitable Merb or Rails environment detected. Try setting RAILS_ENV or loading this plugin later in the app initialization process."
         end
       end
     end
